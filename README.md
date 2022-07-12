@@ -1,0 +1,1 @@
+Repo for a course on kubernetes in pluralsight.
