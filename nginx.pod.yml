@@ -9,12 +9,20 @@ spec:
   containers:
   - name: my-nginx
     image: nginx:stable-alpine
+    livenessProbe:
+      httpGet:
+        path: /index.html
+        port: 80
+      initialDelaySeconds: 15
+      timeoutSeconds: 5
+      periodSeconds: 5
+      failureThreshold: 1
     ports:
     - containerPort: 80
 
 # kubectl create -f nginx.pod.yml --save-config
 # kubectl describe pod [pod-name]
 # kubectl apply -f nginx.pod.yml   <-- can change a current running pod according to changes in yml (not stuff like ports)
-# kubectl exec [pod-name] -it sh   <-- executes a command into a pod
+# kubectl exec [pod-name] -it -- sh   <-- executes a command into a pod
 # kubectl edit -f nginx.pod.yml     <-- can edit current script
 # kubectl delete -f nginx.pod.yml
