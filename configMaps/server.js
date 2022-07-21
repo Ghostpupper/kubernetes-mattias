@@ -10,7 +10,8 @@ const handler = (request, response) => {
     else {
       response.writeHead(200, {"Content-Type": "text/html"});
       response.write("'ENEMIES' (from env variable): " + process.env.ENEMIES + '<br />');
-      response.write("'enemies.cheat.level' (from volume): " + fileData);
+      response.write("'enemies.cheat.level' (from volume): " + fileData + '<br />');
+      response.write("Day of the week: " + process.env.day + '<br />');
       response.end();
     }
   });

@@ -9,3 +9,4 @@ data:
   lives: "3"
   enemies.cheat: "true"
   enemies.cheat.level: noGoodRotten
+  day: thursday
